@@ -29,7 +29,7 @@ function buildLottieConfig(animationToPlay) {
 }
 
 function App() {
-  const [targetUrl, setTargetUrl] = useState("http://127.0.0.1:8081/html");
+  const [targetUrl, setTargetUrl] = useState("");
   const [apiMethod, setApiMethod] = useState("GET");
 
   const [displayType, setDisplayType] = useState("auth"); //Options are 'auth','headers','body'
@@ -46,11 +46,7 @@ function App() {
 
   //I have added some preloaded headers...
   const [headerFields, setHeaderFields] = useState([
-    {key: 'Content-Type', value: 'application/json'},
-    {key: 'User-Agent', value: 'AstroNet/1.0'},
-    {key: 'Accept', value: '*/*'},
-    {key: 'Accept-Encoding', value: 'gzip,deflate,br'},
-    {key: 'Connection', value: 'keep-alive'}
+    {key: 'Accept', value: '*/*'}
   ]);
   const [rawDataInput, setRawDataInput] = useState("");
   const [formDataFields, setFormDataFields] = useState([]);
@@ -414,7 +410,9 @@ function App() {
     } else if (responseViewType === 'html') {
       return (
         <div id="browserDiv" className="mt-4">
-          <div dangerouslySetInnerHTML={{ __html: apiResponseArray[currentResponseIndex].data }} />
+          <iframe 
+          className="responsive-iframe"
+          srcdoc={apiResponseArray[currentResponseIndex].data}></iframe>
         </div>
         );
     }
@@ -520,15 +518,16 @@ function App() {
     if (!response.headers.hasOwnProperty("content-type")) response.headers['content-type'] = "text/plain";
     if (!response.headers.hasOwnProperty("content-length")) response.headers['content-length'] = 0;
 
-    if (response.status === 500) {
-      let errMsg = "Server has encountered an error."
-
-      if (response.hasOwnProperty("stack")) {
-        errMsg = response.stack;
+    if (response.hasOwnProperty("data")) {
+      if (response.data.name) {
+        if ((response.data.name).toLowerCase().includes("error")) {
+          response.status = 500;
+          response.statusText = "Error";
+          response.data = response.data.stack;
+        }
       }
-      response.data = errMsg;
     }
-    //console.log(response);
+
     return response;
   }
 
