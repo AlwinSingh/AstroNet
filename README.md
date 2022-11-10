@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+![AstroNet](https://user-images.githubusercontent.com/62194353/200499913-4e5b619f-1b9e-4948-a4d1-bbf3c1c18564.PNG)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# AstroNet
+This project is a web-based network request sender that relies on a cors-proxy to make the requests. It is a web postman.
+There is a lot more work to do for this application and I will update it progressively as I go along, only if time permits.
 
-## Available Scripts
+## Features
+- Viewing of response (content & raw)
+- HTML rendering of response (E.g. response is a html page)
+- Load testing
+- Custom headers
+- Custom body (Raw data, form-data, x-www-form-urlencoded)
+- Supports file upload using form-data
+- Authorisation support (Basic,Token,Api key)
 
-In the project directory, you can run:
+## Deployment
+This project has been deployed to: https://astronet.netlify.app
 
-### `npm start`
+## Project Commands
+You can run the REACT FRONTEND using 'npm run start'
+You can run the PROXY server using 'node ./src/utility/proxy.js'
+You can run the FRONTEND & PROXY server using 'npm run dev'
+You can run the BUILD REACT project using 'npm run build'
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Deploying to Heroku
+I recommend decoupling the Proxy server & React frontend. Deploy the Node.js proxy server to Heroku. Follow this guide (https://devcenter.heroku.com/articles/deploying-nodejs)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Deploying to Netlify
+I recommend deploying the React frontend to Netlify using this guide (https://www.netlify.com/blog/2016/07/22/deploy-react-apps-in-less-than-30-seconds/)
 
-### `npm test`
+## Video Demo (High Quality: https://www.veed.io/view/df6b18b4-c62d-4978-af73-f82e555eca8b?sharingWidget=true&panel=share)
+https://user-images.githubusercontent.com/62194353/200502137-802799ae-28a4-4f30-96e6-95d9fc1d7208.mp4
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Video Demo of Load Testing (Multiple Requests)
+https://user-images.githubusercontent.com/62194353/200501389-0e16463c-60f3-428d-98be-bbf50d2277eb.mp4
